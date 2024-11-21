@@ -9,6 +9,7 @@ CREATE TABLE recettes(
     auteur VARCHAR(100),
     date_creation DATETIME
 );
+/* ALTER TABLE recettes ADD COLUMN image VARCHAR(100); */
 SELECT * FROM recettes;
 
 DROP TABLE contact;
@@ -19,5 +20,7 @@ CREATE TABLE contact (
     description TEXT
 );
 SELECT * FROM contact;
+
+
 
 

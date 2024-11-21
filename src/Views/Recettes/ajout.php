@@ -13,6 +13,10 @@
         <input type="email" class="form-control" name="auteur" id="auteur" required>
     </div>
     <div class="mb-3">
+        <label for="image">Image :</label>
+        <input type="file" id="image" name="image" accept="image/*">
+    </div>
+    <div class="mb-3">
         <button type="submit" class="btn btn-primary" id="enregistrer">Enregistrer</button>
     </div>
 </form>
