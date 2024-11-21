@@ -1,7 +1,11 @@
 <?php
     require_once(__DIR__.DIRECTORY_SEPARATOR.'src'.DIRECTORY_SEPARATOR.'Models'.DIRECTORY_SEPARATOR.'connectDB.php');
     require_once(__DIR__.DIRECTORY_SEPARATOR.'src'.DIRECTORY_SEPARATOR.'Views'.DIRECTORY_SEPARATOR.'header.php');
+    require_once(__DIR__.DIRECTORY_SEPARATOR.'src'.DIRECTORY_SEPARATOR.'Controllers'.DIRECTORY_SEPARATOR.'recetteController.php');
+    require_once(__DIR__.DIRECTORY_SEPARATOR.'src'.DIRECTORY_SEPARATOR.'Controllers'.DIRECTORY_SEPARATOR.'contactController.php');
     
+    $recetteController = new RecetteController();
+    $contactController = new ContactController();
 
     $page = isset($_GET['c']) ? $_GET['c'] : 'home';
 
@@ -9,15 +13,22 @@
         case 'home':
             require_once(__DIR__.DIRECTORY_SEPARATOR.'src'.DIRECTORY_SEPARATOR.'Controllers'.DIRECTORY_SEPARATOR.'homeController.php');
             break;
+        case 'lister':
+            $recetteController->lister($pdo);
+            break; 
         case 'contact':
-            require_once(__DIR__.DIRECTORY_SEPARATOR.'src'.DIRECTORY_SEPARATOR.'Controllers'.DIRECTORY_SEPARATOR.'contactController.php');
+            $contactController->ajouter();
+            break;
+        case 'enregistrerContact':
+            $contactController->enregistrer($pdo);
             break;
         case 'ajout':
-            require_once(__DIR__.DIRECTORY_SEPARATOR.'src'.DIRECTORY_SEPARATOR.'Controllers'.DIRECTORY_SEPARATOR.'ajoutController.php');
+            $recetteController->ajouter();
             break;
-        case 'enregistrer':
-            require_once(__DIR__.DIRECTORY_SEPARATOR.'src'.DIRECTORY_SEPARATOR.'Controllers'.DIRECTORY_SEPARATOR.'enregistrerController.php');
-            break;    
+        case 'enregistrerRecette':
+            $recetteController->enregistrer($pdo);
+            break;  
+         
         default:
             break;    
     }
