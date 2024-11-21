@@ -21,7 +21,7 @@ class ContactController {
         if($ok) {
             require_once(__DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'Views'.DIRECTORY_SEPARATOR.'Contact'.DIRECTORY_SEPARATOR.'enregistrer.php');
         } else {
-            echo 'Erreur lors de l\'enregistrement de la recette.';
+            echo 'Erreur lors de l\'enregistrement du Contact.';
         }
     }
 }

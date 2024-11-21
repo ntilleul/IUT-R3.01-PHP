@@ -21,6 +21,18 @@ CREATE TABLE contact (
 );
 SELECT * FROM contact;
 
+DROP TABLE users;
+CREATE TABLE users(
+    id SERIAL PRIMARY KEY,
+    identifiant VARCHAR(100),
+    password VARCHAR(100),
+    mail VARCHAR(100),
+    create_time DATETIME,
+    isAdmin TINYINT(1)
+);
+UPDATE users SET isAdmin = 1 WHERE identifiant = 'admin';
+SELECT * FROM users;
+
 
 
 
