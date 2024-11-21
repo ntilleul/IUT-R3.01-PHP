@@ -1,0 +1,2 @@
+-- Active: 1732213705247@@127.0.0.1@3306
+CREATE DATABASE lacosina;
