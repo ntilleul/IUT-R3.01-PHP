@@ -43,7 +43,7 @@ class UserController {
         $user = $requeteidentifiant->fetch(PDO::FETCH_ASSOC);
 
         if (!$user) {
-            require_once __DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'Views'.DIRECTORY_SEPARATOR.'User'.DIRECTORY_SEPARATOR.'connexionEchec.php';
+            require_once(__DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'Views'.DIRECTORY_SEPARATOR.'User'.DIRECTORY_SEPARATOR.'connexionEchec.php');
         } else {
             $pwdHash = $user['password'];
 
@@ -53,7 +53,7 @@ class UserController {
                 $_SESSION['mail'] = $user['mail'];
                 echo "<script>window.location.href = '/lacosina/';</script>";
             } else {
-                require_once __DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'Views'.DIRECTORY_SEPARATOR.'User'.DIRECTORY_SEPARATOR.'connexionEchec.php';
+                require_once(__DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'Views'.DIRECTORY_SEPARATOR.'User'.DIRECTORY_SEPARATOR.'connexionEchec.php');
             }
         }
     }
@@ -61,5 +61,16 @@ class UserController {
     function deconnexion() {
         session_destroy();
         echo "<script>window.location.href = '/lacosina/';</script>";
+    }
+
+    function profil($pdo){
+        $id = $_SESSION['id'];
+
+        $requeteidentifiant = $pdo->prepare('SELECT * FROM users WHERE id = :id');
+        $requeteidentifiant->bindParam(':id', $id);
+        $requeteidentifiant->execute();
+        $user = $requeteidentifiant->fetch(PDO::FETCH_ASSOC);
+
+        require_once(__DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'Views'.DIRECTORY_SEPARATOR.'User'.DIRECTORY_SEPARATOR.'profil.php');
     }
 }

@@ -1,4 +1,5 @@
 <?php
+    session_start();
     require_once(__DIR__.DIRECTORY_SEPARATOR.'src'.DIRECTORY_SEPARATOR.'Models'.DIRECTORY_SEPARATOR.'connectDB.php');
     require_once(__DIR__.DIRECTORY_SEPARATOR.'src'.DIRECTORY_SEPARATOR.'Views'.DIRECTORY_SEPARATOR.'Base'.DIRECTORY_SEPARATOR.'header.php');
 
@@ -56,7 +57,10 @@
             $userController->verifieConnexion($pdo);
             break;
         case 'deconnexion':
-            $userController->deconnexion();              
+            $userController->deconnexion(); 
+            break;
+        case 'profil':
+            $userController->profil($pdo);             
         default:
             break;    
     }
