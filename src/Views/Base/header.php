@@ -14,9 +14,9 @@
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link" href='?c=accueil'>Accueil</a></li>
+                <a class="nav-link" href='?c=home'>Accueil</a></li>
             <li class="nav-item"></li>
-                <a class="nav-link" href='?c=recette'>Recettes</a></li>
+                <a class="nav-link" href='?c=lister'>Recettes</a></li>
             <li class="nav-item">
                 <a class="nav-link" href='?c=contact'>Contact</a></li>
             <li class="nav-item">
