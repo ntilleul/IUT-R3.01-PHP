@@ -1,15 +1,21 @@
 <?php
     session_start();
     require_once(__DIR__.DIRECTORY_SEPARATOR.'src'.DIRECTORY_SEPARATOR.'Models'.DIRECTORY_SEPARATOR.'connectDB.php');
-    require_once(__DIR__.DIRECTORY_SEPARATOR.'src'.DIRECTORY_SEPARATOR.'Views'.DIRECTORY_SEPARATOR.'Base'.DIRECTORY_SEPARATOR.'header.php');
+
+    if(!isset($_GET['x'])){
+        require_once(__DIR__.DIRECTORY_SEPARATOR.'src'.DIRECTORY_SEPARATOR.'Views'.DIRECTORY_SEPARATOR.'Base'.DIRECTORY_SEPARATOR.'header.php');
+    }
+    
 
     require_once(__DIR__.DIRECTORY_SEPARATOR.'src'.DIRECTORY_SEPARATOR.'Controllers'.DIRECTORY_SEPARATOR.'recetteController.php');
     require_once(__DIR__.DIRECTORY_SEPARATOR.'src'.DIRECTORY_SEPARATOR.'Controllers'.DIRECTORY_SEPARATOR.'contactController.php');
     require_once(__DIR__.DIRECTORY_SEPARATOR.'src'.DIRECTORY_SEPARATOR.'Controllers'.DIRECTORY_SEPARATOR.'userController.php');
+    require_once(__DIR__.DIRECTORY_SEPARATOR.'src'.DIRECTORY_SEPARATOR.'Controllers'.DIRECTORY_SEPARATOR.'favoriController.php');
     
     $recetteController = new RecetteController();
     $contactController = new ContactController();
     $userController = new UserController();
+    $favoriController = new FavoriController();
 
     $page = isset($_GET['c']) ? $_GET['c'] : 'home';
     
@@ -60,11 +66,22 @@
             $userController->deconnexion(); 
             break;
         case 'profil':
-            $userController->profil($pdo);             
+            $userController->profil($pdo); 
+            break;
+        case 'favori':
+            $recipeId = $_GET['id'];
+            $userId = $_SESSION['id'];
+            $favoriController->ajouter($pdo, $recipeId, $userId);
+            break;
+        case 'mesFavoris':
+            $userId = $_SESSION['id'];
+            $favoriController->getFavoris($pdo, $userId);
+            break;
         default:
             break;    
     }
 
-    require_once(__DIR__.DIRECTORY_SEPARATOR.'src'.DIRECTORY_SEPARATOR.'Views'.DIRECTORY_SEPARATOR.'Base'.DIRECTORY_SEPARATOR.'footer.php');
-
+    if(!isset($_GET['x'])){
+        require_once(__DIR__.DIRECTORY_SEPARATOR.'src'.DIRECTORY_SEPARATOR.'Views'.DIRECTORY_SEPARATOR.'Base'.DIRECTORY_SEPARATOR.'footer.php');
+    }
     

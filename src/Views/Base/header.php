@@ -39,6 +39,8 @@
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" href="?c=profil">Mon profil</a></li>
                             <li><a class="dropdown-item" href="?c=ajout">Ajouter une recette</a></li>
+                            <li><a class="dropdown-item" href="?c=mesFavoris">Mes recettes favorites</a></li>
+
                         </ul>
                     </li>
                     <li class="nav-item">

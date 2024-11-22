@@ -9,7 +9,7 @@ CREATE TABLE recettes(
     auteur VARCHAR(100),
     date_creation DATETIME
 );
-/* ALTER TABLE recettes ADD COLUMN image VARCHAR(100); */
+-- ALTER TABLE recettes ADD COLUMN image VARCHAR(100); 
 SELECT * FROM recettes;
 
 DROP TABLE contact;
@@ -30,8 +30,17 @@ CREATE TABLE users(
     create_time DATETIME,
     isAdmin TINYINT(1)
 );
-UPDATE users SET isAdmin = 1 WHERE identifiant = 'admin';
+-- UPDATE users SET isAdmin = 1 WHERE identifiant = 'admin';
 SELECT * FROM users;
+
+DROP TABLE favoris;
+CREATE TABLE favoris(
+    id SERIAL PRIMARY KEY,
+    recette_id INT,
+    user_id INT,
+    create_time DATETIME
+);
+SELECT * FROM favoris;
 
 
 
