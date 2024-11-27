@@ -4,6 +4,7 @@
     <div class="row">
         <?php foreach ($recipes as $recipe) : ?>
             <div class="col-4 p-2">
+                <i class="bi bi-heart"></i>
                 <div class="card recipe" data-id="<?php echo $recipe['id']?>">
                     <img src="upload/<?= $recipe['image'] ?? "no_image.png" ?>" alt="<?= $recipe['titre'] ?>" class="card-img-top">
                     <div class="card-body">

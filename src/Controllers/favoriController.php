@@ -15,7 +15,7 @@ class FavoriController {
             $ok = $requeteAjout->execute();
 
             if($ok){
-                require_once(__DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'Views'.DIRECTORY_SEPARATOR.'Recettes'.DIRECTORY_SEPARATOR.'ajoutFavoris.php');
+                $_SESSION['message'] = ['success' => 'Recette ajoutée aux favoris'];
             } else {
                 echo 'Erreur lors de l\'ajout dans les favoris.';
             }
@@ -26,11 +26,12 @@ class FavoriController {
             $ok = $requeteSuppr->execute();
 
             if($ok){
-                require_once(__DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'Views'.DIRECTORY_SEPARATOR.'Recettes'.DIRECTORY_SEPARATOR.'suppressionFavoris.php');
+                $_SESSION['message'] = ['success' => 'Recette supprimée des favoris'];
             } else {
                 echo 'Erreur lors de la suppression dans les favoris.';
             }
         }
+        header("Location: ?c=detail&id=".$recipeId);
     }
 
     function getFavoris($pdo, $userId) {
