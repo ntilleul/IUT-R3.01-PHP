@@ -1,0 +1,1 @@
+<div class="alert alert-success">La suppression de la recette dans les favoris a été effectué avec succès</div>

@@ -35,6 +35,11 @@ class RecetteController {
     }
 
     function detail($pdo, $id) {
+        if (isset($_SESSION['id'])){
+            $favoriController = new FavoriController();
+            $existe = $favoriController->existe($pdo, $id, $_SESSION['id']);
+        }
+        
         $requete = $pdo->prepare("SELECT * FROM recettes WHERE id = :id");
         $requete->bindParam(':id', $id);
 

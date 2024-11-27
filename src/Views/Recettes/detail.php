@@ -5,8 +5,9 @@
             <a href='?c=lister' class="btn btn-primary mt-4">Retour à la liste des recettes</a>
             <?php if(isset($_SESSION['identifiant'])) {?>
                 <a href="?c=modif&id=<?php echo $recipe['id'];?>" class="btn btn-primary">Modifier la recette</a>
-                <a href="?c=favori&id=<?php echo $recipe['id'];?>" class="btn btn-primary">Ajouter aux favoris</a>
-            <?php }?>
+                <?php if(isset($existe)) {?> 
+                    <a href="?c=favori&id=<?php echo $recipe['id'];?>" class="btn btn-primary"><?php echo $existe;?></a>
+            <?php }}?>
         </div>
         <div class="col-6">
             <p><?= $recipe['description'] ?></p>

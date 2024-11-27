@@ -9,13 +9,10 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
     <script src="src/Views/js/recipes"></script>
     <script src="src/Views/js/users"></script>
-    <!-- menu de navigation -->
 </head>
 <body>
-    <!-- Barre de navigation -->
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-            <!-- Menu à gauche -->
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
                     <a class="nav-link" href='?c=home'>Accueil</a>
@@ -28,10 +25,8 @@
                 </li>
             </ul>
 
-            <!-- Menu à droite -->
             <ul class="navbar-nav">
                 <?php if (isset($_SESSION['identifiant'])) { ?>
-                    <!-- Menu connecté -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Bienvenue <?php echo htmlspecialchars($_SESSION['identifiant']); ?>
@@ -39,7 +34,7 @@
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" href="?c=profil">Mon profil</a></li>
                             <li><a class="dropdown-item" href="?c=ajout">Ajouter une recette</a></li>
-                            <li><a class="dropdown-item" href="?c=mesFavoris">Mes recettes favorites</a></li>
+                            <li><a class="dropdown-item" href="?c=mesFavoris&x">Mes recettes favorites</a></li>
 
                         </ul>
                     </li>
@@ -47,7 +42,6 @@
                         <a class="btn btn-outline-dark" href='?c=deconnexion'>Déconnexion</a>
                     </li>
                 <?php } else { ?>
-                    <!-- Menu déconnecté -->
                     <li class="nav-item">
                         <a class="btn btn-outline-dark me-2" href='?c=inscription'>Inscription</a>
                     </li>
@@ -59,7 +53,6 @@
         </div>
     </nav>
 
-    <!-- Contenu principal -->
     <div class="container w-75 m-auto">
 </body>
 </html>

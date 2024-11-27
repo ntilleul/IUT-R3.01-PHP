@@ -71,7 +71,7 @@
         case 'favori':
             $recipeId = $_GET['id'];
             $userId = $_SESSION['id'];
-            $favoriController->ajouter($pdo, $recipeId, $userId);
+            $favoriController->modifier($pdo, $recipeId, $userId);
             break;
         case 'mesFavoris':
             $userId = $_SESSION['id'];
