@@ -48,10 +48,6 @@ class FavoriController {
         $requete->bindParam(':recetteId', $recetteId);
         $requete->execute();
         $resultat = $requete->fetch(PDO::FETCH_ASSOC);
-        if ($resultat['existe'] == 0) {
-            return "Ajouter aux favoris";
-        } else {
-            return "Retirer des favoris";
-        }
+        return $resultat['existe'] > 0;
     }
 }
